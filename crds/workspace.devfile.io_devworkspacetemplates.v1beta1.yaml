@@ -591,7 +591,6 @@ spec:
                             custom component that the implementation controller will
                             know how to use
                           type: object
-                          x-kubernetes-embedded-resource: true
                           x-kubernetes-preserve-unknown-fields: true
                         name:
                           description: Mandatory name that allows referencing the
@@ -2263,7 +2262,6 @@ spec:
                                 this custom component that the implementation controller
                                 will know how to use
                               type: object
-                              x-kubernetes-embedded-resource: true
                               x-kubernetes-preserve-unknown-fields: true
                             name:
                               description: Mandatory name that allows referencing
@@ -4403,7 +4401,7 @@ spec:
                             controller should use to process this command with the
                             appropriate logic
                           type: string
-                        embeddedResource:
+                        spec:
                           description: Additional free-form configuration for this
                             custom component that the implementation controller will
                             know how to use
@@ -4412,7 +4410,7 @@ spec:
                           x-kubernetes-preserve-unknown-fields: true
                       required:
                       - componentClass
-                      - embeddedResource
+                      - spec
                       type: object
                     kubernetes:
                       description: Allows importing into the workspace the Kubernetes

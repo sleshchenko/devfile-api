@@ -82,7 +82,7 @@ type CustomComponent struct {
 	// that the implementation controller will know how to use
 	//
 	// +kubebuilder:pruning:PreserveUnknownFields
-	// +kubebuilder:validation:EmbeddedResource
+	// +kubebuilder:validation:CustomComponentSpec
 	EmbeddedResource runtime.RawExtension `json:"embeddedResource"`
 }
 

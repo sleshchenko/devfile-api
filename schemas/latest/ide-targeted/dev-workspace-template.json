@@ -824,7 +824,7 @@
                 "type": "object",
                 "required": [
                   "componentClass",
-                  "embeddedResource"
+                  "spec"
                 ],
                 "properties": {
                   "componentClass": {
@@ -832,7 +832,7 @@
                     "type": "string",
                     "markdownDescription": "Class of component that the associated implementation controller should use to process this command with the appropriate logic"
                   },
-                  "embeddedResource": {
+                  "spec": {
                     "description": "Additional free-form configuration for this custom component that the implementation controller will know how to use",
                     "type": "object",
                     "additionalProperties": true,

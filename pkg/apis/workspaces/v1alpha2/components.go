@@ -97,5 +97,5 @@ type CustomComponent struct {
 	//
 	// +kubebuilder:pruning:PreserveUnknownFields
 	// +kubebuilder:validation:EmbeddedResource
-	EmbeddedResource runtime.RawExtension `json:"embeddedResource"`
+	CustomComponentSpec runtime.RawExtension `json:"spec"`
 }
