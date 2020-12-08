@@ -1,0 +1,53 @@
+schemaVersion: "2.0.0"
+metadata:
+  name: "devfile example"
+  version: "1.0.0"
+projects:
+  - name: "my-project"
+    git:
+      remotes:
+        origin: "https://github.com/devfile/api"
+      checkoutFrom:
+        revision: "master"
+        remote: origin
+components:
+  - name: "theia"
+    custom:
+      # we may introduce the common editor class as well
+      class: theia-editor
+      spec:
+        id: theia/newPlugin/latest
+        registryUrl: "https://acme.com/registry/"
+        containers:
+          - name: theia
+            memoryLimit: 1Gi
+        extensions:
+          # we are able to define plugins here with or without sidecars
+          - specUri: "https://github.com/johndoe/che-plugins/blob/master/cool-plugin/0.0.1/meta.yaml"
+          - id: redhat/java/latest
+          - vsxUri: https://.../vscode-java-debug-0.26.0.vsix
+  # if we rely on the default editor, then we can provision just theia extension.
+  # che-theia-extension component has a strong dependency on the theia editor
+  - name: theia-java
+    custom:
+      class: theia-extension
+      spec:
+        extensions:
+          - https://.../vscode-java-debug-0.26.0.vsix
+          - https://.../java-0.63.0-2222.vsix
+          - https://...vscode-java-test-0.24.0.vsix
+  - name: "mycontainer"
+    container:
+      image: "busybox"
+      memoryLimit: "128M"
+      mountSources: true
+      endpoints:
+        - name: term-websockets
+          exposure: public
+          protocol: ws
+          attributes:
+            type: terminal
+          targetPort: 4000
+  - name: "production"
+    kubernetes:
+      uri: "https://somewhere/production-environment.yaml"
