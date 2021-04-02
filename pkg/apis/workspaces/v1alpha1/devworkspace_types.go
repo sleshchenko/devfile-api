@@ -17,7 +17,7 @@ type DevWorkspaceSpec struct {
 // +k8s:openapi-gen=true
 type DevWorkspaceStatus struct {
 	// Id of the workspace
-	WorkspaceId string `json:"workspaceId"`
+	WorkspaceId string `json:"devworkspaceId"`
 	// URL at which the Worksace Editor can be joined
 	IdeUrl string         `json:"ideUrl,omitempty"`
 	Phase  WorkspacePhase `json:"phase,omitempty"`

@@ -4,7 +4,7 @@ metadata:
   name: devworkspaces.workspace.devfile.io
 spec:
   additionalPrinterColumns:
-  - JSONPath: .status.workspaceId
+  - JSONPath: .status.devworkspaceId
     description: The workspace's unique id
     name: Workspace ID
     type: string
@@ -3644,11 +3644,11 @@ spec:
               type: string
             phase:
               type: string
-            workspaceId:
+            devworkspaceId:
               description: Id of the workspace
               type: string
           required:
-          - workspaceId
+          - devworkspaceId
           type: object
       type: object
   version: v1alpha1
